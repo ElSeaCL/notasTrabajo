@@ -29,7 +29,7 @@ Tarea | Frecuencia
 [Seguimiento concentraciones](#seguimiento-concentraciones) | 1 x semana
 [Seguimiento preparación polímero](#seguimiento-preparación-polímero) | 1 x semana
 [Revisar aforos Procesos](#revisar-aforos-procesos) | 1 x semana
-
+[Actualizar indicador CAMBI](#actualizar-indicador-cambi) | Cuando lo pidan 
 
 ### CHEQUEO GENERAL EN SCADA
 
@@ -53,6 +53,8 @@ Revisar que los ratios sean los que se solicitaron. Pasa que muchas veces los op
 
 Fijarse en el modo de operación del valor de pre-espesadores. Ahora contamos con dos sensores así que tenemos la opción de operar con cualquiera de estos, su promedio o el valor de laboratorio. Lo ideal sería operar con el valor de uno de los sensores.
 
+![Modo de operación concentración cámara de reaireación](parametros_esp2.png)
+
 ### CHEQUEO GENERAL EN TERRENO
 
 Ronda realizada diariamente por las distintas áreas del taller de deshidratación.
@@ -71,9 +73,15 @@ Los consumos de las unidades por área (espesamiento, deshidratación) deben ser
 
 En caso de que no esté en modo gravimetrico, simplemente se aprieta el botón para cmabiar de modo. Una vez cambiado es buena idea hacerle un pequeño seguimiento al equipo, ya que a veces el cambio de modo se puede originar por problemas que hay que analizar más profundamente.
 
+![Display unidad Coperion](coperion.jpg)
+
  - Revisar el estado del polímero
 
+ Observar como se ve la preparación. Idealmente debería ser una mezcla homogenea sin presencia de grumos.
+
  - Revisar la limpieza del área
+
+Muchas veces la caida de las centrífugas está llena de polímero por los lados. En ese caso hay que solicitar apoyo a operación para que realicen limpieza del sector.
 
 #### Centrifugas de Espesamiento
 
@@ -81,7 +89,9 @@ En caso de que no esté en modo gravimetrico, simplemente se aprieta el botón p
 
 Lo más rapido para no perder mucho tiempo en esto es revisar visualmente la calidad de los centrados. Por lo general Se espera que os centrados estén en nivel 1, lo que significa un centrado con 0 o pocos residuos solidos. En caso de que no esté en el nivel esperado se realiza un ajuste de **VR** (o de **torque** dependiendo del modo de operación)
 
-> A mayor VR el centrado sale más claro, pero baja el torque. A mayor torque la sequedad del lodo aumenta. Ambas variables son invesamente proporcionales.
+![Display de control de centrífugas](centrifugas.jpg)
+
+> A mayor VR el centrado sale más claro, pero baja el torque. A mayor torque la sequedad del lodo aumenta. Ambas variables son inversamente proporcionales.
 
 En caso de tener tiempo se puede tomar una muestra de lodo hacerle una sequedad en las termo del área.
 
@@ -91,6 +101,8 @@ OJO: En caso de que tanto el centrado como el lodo estén bajo lo esperado, lo m
 
 2. La concentración de lodo con la que están trabajando los equipos no corresponde, corregir.
 
+![Centrado ejemplar](centrado_bueno.jpg)
+
  - Revisar los centrados comunes
 
 > Nunca le creas al centrado de una centrifuga.
@@ -99,31 +111,91 @@ Otra forma de ver los resultados de centrado es fijarse en los centrados comunes
 
 #### Pre-espesadores
 
- - Revisar los mantos
+ - Revisar los espejos
+
+Tal cual como lo dice el título, de vez en cuendo es bueno ver como se encuentran los espejos para hacerse una idea de los sobrenadantes de los pre-espesadores.
 
  - Revisar el lodo pre-espesado
 
 En caso de ser necesario (querer verificar la concentración marcada por los sensores, por ejemplo) se puede tomar una muestra de lodo pre-espesado y tirarla a la termo. Tomar en cuenta que la muestra debe ser tomada desde una bomba que se encuentre en operación.
 
+![Camara de bombas de lodo espesamiento](camara_bomb_cent.jpg)
+
 ### RESUMEN OPERACIÓN CENTRÍFUGA ALFA LAVAL
 
+Actualmente no se ha realizado, pero hasta hace poco se solicitaba enviar una vez por semana un resumen de la operación en la centrífuga Alfa-Laval. La ruta con los archivos para realizar este seguimiento es la siguiente:
+
+```
+T:\PROCESOS\18. Seguimientos\Espesamiento\AlfaLaval
+```
+El archivo que hay que actualizar es la planilla *datosAlfaLaval.xlsx* 
+
 ### RATIOS DE LA SEMANA
+```
+T:\PROCESOS\18. Seguimientos\Polimero
+```
+
 
 ### CONSIGNAS DE CENTRIFUGACIÓN
+```
+T:\PROCESOS\17. Datos Diarios\Consignas Centrífugación
+```
 
-### PROYECCIÓN DE CAMiONES
+### PROYECCIÓN DE CAMIONES
+```
+
+```
 
 ### ANÁLISIS AVANZADO DE POLÍMERO
 
+En evaluación si lo seguiremos realizando nosotros, ~~espero que no~~ o si pasara a laboratorio. Dudo que lo tengan que realizar en estas semanas así lo dejaré así por ahora....
+
 ### SEGUIMIENTO CONCENTRACIONES
 
+El archivo que contiene los datos de los sensores de los pre-espesadores y los espesadores es el *Concentración Espesadores SCADA.xlsx*. Este se debe actualizar con los datos de concentración mínima, máxima y promedio. 
+
+Este archivo se encuentra en la siguiente ubicación:
+```
+T:\PROCESOS\18. Seguimientos\Concentraciones Lab vs. SCADA
+```
+La planilla contiene las hojas **670**, **650** y **datos1650** con los vinculos para historian.
+
+La hoja donde se pegan los datos finales son **Resumen670**, **Resumen650** y **1650prom**. Lo que hago apra facilitar el pegado de los datos es dejar los datos correspondientes como valor en las hojas destinadas para el minimo, máximo y promedio. Todos estos datos deben ir a parar a las hojas Resumen (para losdatos de 650 y 1650) o la hoja 1650prom, para los datos del sensor en linea.
+
+Una vez actualizado este archivo se puede abrir la planilla *Comparativo Concentraciones Esp-Dig* ubicada en la misma dirección de la planilla anterior. En esta planilla se encuentran las gráficas de comparación.
+
 ### REVISAR AFOROS PROCESOS
+
+Los datos de aforos se pueden encontrar en una de esta dos direcciónes:
+```
+T:\OPERACIONES\1. AFORO UNIDADES DE POLIMERO\Aforo Unidades Polímero 2020
+o...
+S:\OPERACIONES\14. AFORO UNIDADES POLIMERO\AFORO UNIDADES 2020
+```
+Este aforo debería realizarse todos los días, los resulatdos se presentan en una tabla como la expuesta a continuación:
+
+![Resultados aforo de polímero](aforo_pol.png)
+
+En caso de existir desviación hay que analizar a que se debe. Es posible que sea necesario realizar aviso a intrumentación para que realicen ajustes al equipo.
 
 ## PRUEBAS
 
 ### LODO BIOLOGICO + PRIMARIO EN CENTRÍFUGA E
 
+![Bombas de lodo primario a centrífuga E espesamiento](bombas_primario.jpg)
+
+
+
+![Sensor de lodo primario](sensor_lp.jpg)
+
+
 ### PRUEBA 2 POLÍMERO EN CENTRIFUGA ESPESAMIENTO
+
+![Centrífuga E de espesamiento](cent_e.jpg){width=250px} ![Centrífuga F de espesamiento](cent_f.jpg){width=250px}
+
+### SENSOR EN LINEA CENTRADO DESHIDRATACIÓN
+
+![Equipo de medición centrado deshidratación](centrado_linea.jpg)
 
 
 ## PROYECTOS
